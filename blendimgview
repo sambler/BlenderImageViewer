@@ -32,7 +32,7 @@ import os
 
 sdir = os.path.abspath(os.path.dirname(argv[0]))
 
-calllist = ['blender-mymods','--factory-startup',sdir+'/blend_image_view.blend',
+calllist = ['blender','--factory-startup',sdir+'/blend_image_view.blend',
             '--python',sdir+'/blend_open_image_file.py','--']
 
 # add the args we get as filenames
