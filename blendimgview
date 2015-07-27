@@ -32,7 +32,13 @@ import os
 
 sdir = os.path.abspath(os.path.dirname(argv[0]))
 
-calllist = ['blender','--factory-startup',sdir+'/blend_image_view.blend',
+# if blender can be found from your $PATH this will work
+# if not you need to adjust this to suit.
+blendapp = 'blender'
+# on osx the following is a common setting
+#blendapp = '/Applications/Blender/blender.app/Contents/MacOS/blender'
+
+calllist = [blendapp,'--factory-startup',sdir+'/blend_image_view.blend',
             '--python',sdir+'/blend_open_image_file.py','--']
 
 # add the args we get as filenames
