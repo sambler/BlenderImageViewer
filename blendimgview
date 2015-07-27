@@ -37,6 +37,8 @@ sdir = os.path.abspath(os.path.dirname(argv[0]))
 blendapp = 'blender'
 # on osx the following is a common setting
 #blendapp = '/Applications/Blender/blender.app/Contents/MacOS/blender'
+# windows may need to be
+#blendapp = 'C:/Program Files/Blender Foundation/Blender/blender.exe'
 
 calllist = [blendapp,'--factory-startup',sdir+'/blend_image_view.blend',
             '--python',sdir+'/blend_open_image_file.py','--']
