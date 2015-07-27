@@ -50,11 +50,11 @@ showAreaType = 'image'
 curChann = 1
 
 for i in range(numFilesToOpen):
-    filename = os.path.abspath(argv[fileStartIdx + i])
+    filename = argv[fileStartIdx + i]
     ext = os.path.splitext(filename)[1].lower()
 
     if ext in acceptedImgFiles:
-        bpy.ops.image.open(filepath=argv[fileStartIdx + i])
+        bpy.ops.image.open(filepath=os.path.abspath(argv[fileStartIdx + i]))
     elif ext in acceptedMovFiles:
         # while we will open video files, blender isn't the best option here
         # When opening multiple videos, each video is imported into a new track
