@@ -29,16 +29,19 @@
 from subprocess import call
 from sys import argv
 import os
+import platform
 
 sdir = os.path.abspath(os.path.dirname(argv[0]))
 
-# if blender can be found from your $PATH this will work
-# if not you need to adjust this to suit.
-blendapp = 'blender'
-# on osx the following is a common setting
-#blendapp = '/Applications/Blender/blender.app/Contents/MacOS/blender'
-# windows may need to be
-#blendapp = 'C:/Program Files/Blender Foundation/Blender/blender.exe'
+# for most users this should work, adjust if needed
+if platform.system() == 'Darwin':
+    blendapp = '/Applications/Blender/blender.app/Contents/MacOS/blender'
+elif platform.system() == 'Windows':
+    blendapp = 'C:/Program Files/Blender Foundation/Blender/blender.exe'
+else:
+    # if blender can be found from your $PATH this will work
+    # if not you need to adjust this to suit.
+    blendapp = 'blender'
 
 calllist = [blendapp,'--factory-startup',sdir+'/blend_image_view.blend',
             '--python',sdir+'/blend_open_image_file.py','--']
