@@ -43,11 +43,15 @@ else:
     # if not you need to adjust this to suit.
     blendapp = 'blender'
 
-calllist = [blendapp,'--factory-startup',sdir+'/blend_image_view.blend',
-            '--python',sdir+'/blend_open_image_file.py','--']
+calllist = [
+        blendapp,
+        '--factory-startup',
+        os.path.join(sdir, 'blend_image_view.blend'),
+        '--python',
+        os.path.join(sdir, 'blend_open_image_file.py'),
+        '--']
 
 # add the args we get as filenames
-for a in argv:
-    calllist.append(a)
+calllist.extend(argv)
 
 call(calllist)
